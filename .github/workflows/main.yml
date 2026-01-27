@@ -2,7 +2,7 @@ name: Keep Backend Awake
 
 on:
   schedule:
-    - cron: "*/10 * * * *"
+    - cron: "*/30 * * * *"
 
 jobs:
   ping:
@@ -10,5 +10,5 @@ jobs:
     steps:
       - name: Ping backend
         run: |
-          curl ${{ secrets.BACKEND_URL }} > /dev/null
+          curl -s ${{ secrets.BACKEND_URL }} > /dev/null
           echo "Last ping occured at: $(date)"
