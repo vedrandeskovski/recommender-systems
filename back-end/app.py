@@ -81,6 +81,11 @@ def get_ncf_recommendation(user_id: int, num_recommendations:int):
     )
     return paginate(recommendations)
 
+@app.get("/health")
+def health():
+    return {"status": "ok"}
+
+
 add_pagination(app)
 if __name__ == "__main__":
     uvicorn.run("app:app", host="localhost", port=8080, reload=True)
