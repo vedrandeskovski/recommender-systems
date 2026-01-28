@@ -82,6 +82,7 @@ def get_ncf_recommendation(user_id: int, num_recommendations:int):
     return paginate(recommendations)
 
 @app.get("/health")
+@app.head("/health")
 def health():
     return {"status": "ok"}
 
