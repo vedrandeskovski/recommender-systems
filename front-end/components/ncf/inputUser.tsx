@@ -64,7 +64,7 @@ const InputUser = ({
 
   const fetchUserRatings = async () => {
     const numericID = getValidUserId();
-    if (!numericID) {
+    if (numericID === null) {
       return;
     }
 
@@ -75,7 +75,7 @@ const InputUser = ({
       sortBy,
       order,
       page,
-      size
+      size,
     );
 
     if (response.error) {
@@ -104,7 +104,7 @@ const InputUser = ({
       userID,
       numRecommendations,
       predPage,
-      10
+      10,
     );
     if (response.error) {
       setDataErrorMsg(response.errorMsg);
